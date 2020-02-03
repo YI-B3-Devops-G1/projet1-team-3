@@ -2,7 +2,7 @@
  executors:
    test:
       environment:
-        PROJECT_NAME: redwappin/projet1_ade
+        IMAGE_NAME: redwappin/projet1_ade
       docker:
         - image: circleci/buildpack-deps:trusty
  jobs:
@@ -38,9 +38,9 @@
            command: |
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 IMAGE_TAG=${CIRCLE_TAG/v/''}
-                docker tag project_api $PROJECT_NAME:$IMAGE_TAG
-                docker push $PROJECT_NAME:latest
-                docker push $PROJECT_NAME:$IMAGE_TAG
+                docker tag project_api $IMAGE_NAME:$IMAGE_TAG
+                docker push $IMAGE_NAME:latest
+                docker push $IMAGE_NAME:$IMAGE_TAG
  workflows:
   version: 2
   build-master:
