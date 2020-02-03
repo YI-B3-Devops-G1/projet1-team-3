@@ -3,6 +3,8 @@ FROM node:10
 # Create app directory
 WORKDIR /home/api/ade
 
+RUN mkdir -p /home/api/ade
+ 
 COPY package.json /home/api/ade
 
 RUN npm install
