@@ -39,5 +39,22 @@
                 docker tag project_api:latest redwappin/projet1_ade:$IMAGE_TAG
                 docker push redwappin/projet1_ade:latest
                 docker push redwappin/projet1_ade:$IMAGE_TAG
-      
+ workflows:
+    version: 2
+    build-tags:
+      jobs:
+        - build:
+            filters:
+              tags:
+                only: /^v.*/
+              branches:
+                ignore: /.*/
+        - publish-tag:
+            requires:
+              - build
+            filters:
+              tags:
+                only: /^v.*/
+              branches:
+                ignore: /.*/
       
