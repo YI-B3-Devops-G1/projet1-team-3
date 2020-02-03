@@ -32,6 +32,9 @@
            name: Load archived Docker image
            command: docker load -i /tmp/workspace/${PROJECT_NAME}.tar
         - run:
+          name: Rename docker image
+          command: docker tag project_api ${GITHUB_USER}/${PROJECT_NAME}:latest
+        - run:
            name: Publish Docker Image to Docker Hub
            command: |
               echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
