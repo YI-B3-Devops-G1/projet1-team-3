@@ -14,4 +14,4 @@
        - run: echo "A first hello"
        - run:
           name: Build
-          command: docker-compose -f ./docker-compose.yml --build
+          command: docker-compose -f ./docker-compose.yml build
