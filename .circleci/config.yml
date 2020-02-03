@@ -5,11 +5,10 @@
         PROJECT_NAME: projet1_ade
         GITHUB_USER: redwappin
       docker:
-        - image: circleci/node:latest
+        - image: circleci/buildpack-deps:trusty
  jobs:
    build:
-     executor: circleci_executor
-     
+     executor: circleci_executor 
      steps:
        - checkout
        - run: echo "A first hello"
