@@ -4,7 +4,7 @@
       environment:
         IMAGE_NAME: redwappin/projet1_ade
       docker:
-        - image: circleci/buildpack-deps:trusty
+        - image: circleci/buildpack-deps:stretch
  jobs:
    build:
      executor: test 
@@ -19,7 +19,7 @@
           command: docker images -a
        - run:
           name: Archive Docker image
-          command: docker save -o ${PROJECT_NAME}.tar project_api
+          command: docker save -o ${PROJECT_NAME}.tar $IMAGE_NAME
        - persist_to_workspace:
           root: .
           paths:
@@ -38,7 +38,7 @@
            command: |
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 #IMAGE_TAG=${CIRCLE_TAG/v/''}
-                #docker tag project_api $IMAGE_NAME:$IMAGE_TAG
+                #docker tag project_api:latest $IMAGE_NAME:$IMAGE_TAG
                 docker push $IMAGE_NAME:latest
                 #docker push $IMAGE_NAME:$IMAGE_TAG
  workflows:
