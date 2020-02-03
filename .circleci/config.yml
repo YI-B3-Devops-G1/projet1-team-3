@@ -36,8 +36,8 @@
            command: |
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 IMAGE_TAG=${CIRCLE_TAG/v/''}
-                docker tag project_api:latest $IMAGE_NAME:$IMAGE_TAG
-                docker push project_api:latest
-                docker push project_api:$IMAGE_TAG
+                docker tag project_api:latest ${DOCKERHUB_USERNAME}/${PROJECT_NAME}:$IMAGE_TAG
+                docker push ${DOCKERHUB_USERNAME}/${PROJECT_NAME}:latest
+                docker push ${DOCKERHUB_USERNAME}/${PROJECT_NAME}:$IMAGE_TAG
       
       
