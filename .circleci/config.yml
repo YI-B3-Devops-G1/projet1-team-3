@@ -39,8 +39,7 @@
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 IMAGE_TAG=${CIRCLE_TAG/v/''}
                 docker tag project_api $IMAGE_NAME:$IMAGE_TAG
-                docker push $IMAGE_NAME:latest
-                docker push $IMAGE_NAME:$IMAGE_TAG
+
  workflows:
   version: 2
   build-master:
