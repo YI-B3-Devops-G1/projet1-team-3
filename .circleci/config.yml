@@ -8,7 +8,7 @@ executors:
       - image: circleci/node:latest
  jobs:
    build:
-     executors: circleci_executor
+     executor: circleci_executor
      
      steps:
        - checkout
