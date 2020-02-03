@@ -5,15 +5,15 @@ services:
     hostname: reverseproxy
     image: "nginx:latest"
     build:
-      context: ./nginx
-      dockerfile: dockerfile
+      context: ./
+      dockerfile: nginx/dockerfile
     ports:
       - 3000:80 
   api:
     container_name: node_api
     build:
-      context: ./api
-      dockerfile: dockerfile
+      context: ./
+      dockerfile: api/dockerfile
     environment:
       - API_PORT=3000
       - DB_HOST=postgres  
