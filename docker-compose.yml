@@ -12,8 +12,8 @@ services:
   api:
     container_name: node_api
     build:
-      context: ./
-      dockerfile: api/dockerfile
+      context: ./api
+      dockerfile: dockerfile
     depends_on:
       - db
       - redis
