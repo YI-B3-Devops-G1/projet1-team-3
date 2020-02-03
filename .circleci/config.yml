@@ -27,7 +27,7 @@
       steps:
         - setup_remote_docker
         - attach_workspace:
-          at: /tmp/workspace
+            at: /tmp/workspace
         - run:
            name: Load archived Docker image
            command: docker load -i /tmp/workspace/${PROJECT_NAME}.tar
