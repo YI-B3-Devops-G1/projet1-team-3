@@ -19,7 +19,7 @@
           command: docker images -a
        - run:
           name: Archive Docker image
-          command: docker save -o ${PROJECT_NAME}.tar project_api
+          command: docker save -o ./${PROJECT_NAME}.tar project_api
        - persist_to_workspace:
           root: .
           paths:
