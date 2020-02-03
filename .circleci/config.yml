@@ -47,7 +47,7 @@
           filters:
             branches:
               only: master
-      - upload-latest:
+      - publish-tag:
           requires:
             - build
           filters:
