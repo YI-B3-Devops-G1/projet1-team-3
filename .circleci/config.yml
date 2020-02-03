@@ -1,6 +1,6 @@
  version: 2
  executors:
-   circleci_executor:
+   test:
       environment:
         PROJECT_NAME: projet1_ade
         GITHUB_USER: redwappin
@@ -8,7 +8,7 @@
         - image: circleci/buildpack-deps:trusty
  jobs:
    build:
-     executor: circleci_executor 
+     executor: test 
      steps:
        - checkout
        - run: echo "A first hello"
