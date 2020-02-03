@@ -1,11 +1,11 @@
  version: 2
-executors:
-  circleci_executor:
-    environment:
-      PROJECT_NAME: projet1_ade
-      GITHUB_USER: redwappin
-    docker:
-      - image: circleci/node:latest
+ executors:
+   circleci_executor:
+      environment:
+        PROJECT_NAME: projet1_ade
+        GITHUB_USER: redwappin
+      docker:
+        - image: circleci/node:latest
  jobs:
    build:
      executor: circleci_executor
