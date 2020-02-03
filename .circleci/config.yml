@@ -12,7 +12,6 @@
      steps:
        - checkout
        - setup_remote_docker # This environment is remote, fully-isolated and has been configured to execute Docker commands
-       - run: echo "A first hello"
        - run:
-          name: Build
-          command: docker-compose -f ./docker-compose.yml build
+          name: Build docker image
+          command: docker-compose -f ./docker-compose.yml build up
