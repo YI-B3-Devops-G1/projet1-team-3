@@ -22,7 +22,7 @@
           root: .
           paths:
             - ./*.tar
-    publish-latest:
+   publish-latest:
       executor: test 
       steps:
         - setup_remote_docker
