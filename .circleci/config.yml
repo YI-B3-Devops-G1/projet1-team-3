@@ -1,8 +1,18 @@
  version: 2
+executors:
+  circleci_executor:
+    environment:
+      PROJECT_NAME: projet1_ade
+      GITHUB_USER: redwappin
+    docker:
+      - image: circleci/node:latest
  jobs:
    build:
-     docker:
-       - image: circleci/node:12
+     executors: circleci_executor
+     
      steps:
        - checkout
        - run: echo "A first hello"
+       - run:
+          name: Build
+          command: docker-compose -f ./docker-compose.yml --build
