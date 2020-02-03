@@ -22,14 +22,19 @@
           root: .
           paths:
             - ./*.tar
-    # publish-latest:
-    #   executor: test 
-    #   steps:
-    #     - setup_remote_docker
-    #     - run:
-    #         name: Publish Docker Image to Docker Hub
-    #         command: |
-    #           echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-    #           docker push $IMAGE_NAME:latest
+    publish-latest:
+      executor: test 
+      steps:
+        - setup_remote_docker
+        - attach_workspace:
+          at: /tmp/workspace
+        - run:
+           name: Load archived Docker image
+           command: docker load -i /tmp/workspace/${PROJECT_NAME}.tar
+        - run:
+           name: Publish Docker Image to Docker Hub
+           command: |
+              echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+              docker push ${GITHUB_USER}/${PROJECT_NAME}:latest
       
       
