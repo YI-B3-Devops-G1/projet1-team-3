@@ -19,7 +19,7 @@
           command: docker images -a
        - run:
           name: Archive Docker image
-          command: docker save -o image.tar project_api
+          command: docker save -o image.tar $IMAGE_NAME
        - persist_to_workspace:
           root: .
           paths:
@@ -39,7 +39,7 @@
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 #IMAGE_TAG=${CIRCLE_TAG/v/''}
                 #docker tag project_api:latest $IMAGE_NAME:$IMAGE_TAG
-                docker push redwappin/projet1_ade:latest
+                docker push $IMAGE_NAME:latest
                 #docker push $IMAGE_NAME:$IMAGE_TAG
  workflows:
   version: 2
