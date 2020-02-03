@@ -14,6 +14,9 @@ services:
     build:
       context: ./
       dockerfile: api/dockerfile
+    depends_on:
+      - db
+      - redis
     environment:
       - API_PORT=3000
       - DB_HOST=postgres  
