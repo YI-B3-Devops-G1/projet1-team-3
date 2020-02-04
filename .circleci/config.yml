@@ -40,7 +40,7 @@
            command: echo $(.circleci/scripts/get_tag.sh)
         - run:
            name: Publish Docker Image to Docker Hub
-           command: ./$(.circleci/scripts/docker_tag_push.sh)
+           command: .circleci/scripts/docker_tag_push.sh
 
  workflows:
   version: 2
