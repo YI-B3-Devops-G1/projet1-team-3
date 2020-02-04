@@ -36,7 +36,7 @@
         - run:
            name: What is circle tag?
            command: | 
-                    if [ $CIRCLE_TAG = "" ] 
+                    if [ $CIRCLE_TAG == "" ];
                     then IMAGE_TAG=$CIRCLE_BUILD_NUM 
                     else IMAGE_TAG=${CIRCLE_TAG/v/''} 
                     fi
