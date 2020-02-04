@@ -39,7 +39,7 @@
         - run:
            name: Publish Docker Image to Docker Hub
            command: |
-                IMAGE_TAG=$(./scripts/get_tag.sh)
+                IMAGE_TAG=$(scripts/get_tag.sh)
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 docker tag project_api:latest redwappin/projet1_ade:$IMAGE_TAG
                 docker push redwappin/projet1_ade:$IMAGE_TAG
