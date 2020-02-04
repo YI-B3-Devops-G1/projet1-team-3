@@ -35,7 +35,8 @@
            command: docker load -i /tmp/workspace/${PROJECT_NAME}_test.tar
         - run:
            name: What is circle tag?
-           command: | 
+           command: |
+                $IMAGE_TAG=latest
                 if [ "${CIRCLE_TAG}" == "" ];
                 then
                   IMAGE_TAG=$CIRCLE_BUILD_NUM 
