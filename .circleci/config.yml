@@ -38,10 +38,11 @@
            command: | 
                 if [ "${CIRCLE_TAG}" == "" ];
                 then
-                  echo "The master branch deploy needs be approved"
+                  IMAGE_TAG=$CIRCLE_BUILD_NUM 
                 else
-                  echo "wouf"
+                  IMAGE_TAG=${CIRCLE_TAG/v/''} 
                 fi
+                echo $IMAGE_TAG
                     # if [ $CIRCLE_TAG == "" ] 
                     # then IMAGE_TAG=$CIRCLE_BUILD_NUM 
                     # else IMAGE_TAG=${CIRCLE_TAG/v/''} 
