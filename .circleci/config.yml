@@ -36,7 +36,7 @@
         - run:
            name: What is circle tag?
            command: |
-                $IMAGE_TAG="latest"
+                IMAGE_TAG = "latest"
                 if [ "${CIRCLE_TAG}" == "" ];
                 then
                   IMAGE_TAG=$CIRCLE_BUILD_NUM 
