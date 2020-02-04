@@ -35,7 +35,7 @@
            command: docker load -i /tmp/workspace/${PROJECT_NAME}_test.tar
         - run:
            name: What is circle tag?
-           command: echo $(.circleci/scripts/get_tag.sh)"
+           command: echo $(.circleci/scripts/get_tag.sh)
         - run:
            name: Publish Docker Image to Docker Hub
            command: |
