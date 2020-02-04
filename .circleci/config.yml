@@ -1,6 +1,7 @@
  version: 2.1
  executors:
    test:
+      working_directory: ~/repo
       environment:
         IMAGE_NAME: redwappin/projet1_ade
       docker:
@@ -27,6 +28,7 @@
    publish-tag:
       executor: test 
       steps:
+        - checkout
         - setup_remote_docker
         - attach_workspace:
             at: /tmp/workspace
