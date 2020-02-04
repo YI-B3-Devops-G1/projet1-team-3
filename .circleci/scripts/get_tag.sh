@@ -5,4 +5,4 @@ then
 else
     IMAGE_TAG_TMP="${CIRCLE_TAG/v/''}"
 fi
-printf $IMAGE_TAG_TMP
+echo "$IMAGE_TAG_TMP"
