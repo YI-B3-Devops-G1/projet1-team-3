@@ -35,19 +35,11 @@
            command: docker load -i /tmp/workspace/${PROJECT_NAME}_test.tar
         - run:
            name: What is circle tag?
-           command: |
-                IMAGE_TAG_TMP="latest"
-                if [ "${CIRCLE_TAG}" == "" ];
-                then
-                  IMAGE_TAG_TMP="$CIRCLE_BUILD_NUM" 
-                else
-                  IMAGE_TAG_TMP="${CIRCLE_TAG/v/''}"
-                fi
-                export IMAGE_TAG=$IMAGE_TAG_TMP
+           command: echo "$(./scripts/get_tag.sh)"
         - run:
            name: Publish Docker Image to Docker Hub
            command: |
-                echo $IMAGE_TAG
+                IMAGE_TAG=$(./scripts/get_tag.sh)
                 echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 docker tag project_api:latest redwappin/projet1_ade:$IMAGE_TAG
                 docker push redwappin/projet1_ade:$IMAGE_TAG
