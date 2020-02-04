@@ -36,11 +36,11 @@
         - run:
            name: Publish Docker Image to Docker Hub
            command: |
-                echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                echo "$DOCKERHUB_PASS"|base64 --decode | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
                 IMAGE_TAG=${CIRCLE_TAG/v/''}
                 echo $IMAGE_TAG
-                #docker tag project_api:latest redwappin/${PROJECT_NAME}:$IMAGE_TAG
-                #docker push redwappin/${PROJECT_NAME}:latest
+                docker tag project_api:latest redwappin/projet1_ade:latest
+                docker push redwappin/projet1_ade:latest
 
  workflows:
   version: 2
