@@ -36,7 +36,6 @@
         - run:
            name: What is circle tag?
            command: | 
-                     |
             if [ "${CIRCLE_BRANCH}" == "master" ];
             then
               echo "The master branch deploy needs be approved"
