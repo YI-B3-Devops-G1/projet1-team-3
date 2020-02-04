@@ -39,16 +39,11 @@
                 IMAGE_TAG="latest"
                 if [ "${CIRCLE_TAG}" == "" ];
                 then
-                  IMAGE_TAG=$CIRCLE_BUILD_NUM 
+                  IMAGE_TAG="$CIRCLE_BUILD_NUM" 
                 else
-                  IMAGE_TAG=${CIRCLE_TAG/v/''} 
+                  IMAGE_TAG="${CIRCLE_TAG/v/''}"
                 fi
                 echo $IMAGE_TAG
-                    # if [ $CIRCLE_TAG == "" ] 
-                    # then IMAGE_TAG=$CIRCLE_BUILD_NUM 
-                    # else IMAGE_TAG=${CIRCLE_TAG/v/''} 
-                    # fi
-                    # echo $IMAGE_TAG
         - run:
            name: Publish Docker Image to Docker Hub
            command: |
