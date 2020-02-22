@@ -1,13 +1,17 @@
 version: '3'
 services:
+  reverseproxy:
+    container_name: reverseproxy
+    hostname: reverseproxy
+    image: "nginx:latest"
+    build:
+      context: ./nginx
+      dockerfile: dockerfile
+    ports:
+      - 3000:80 
   api:
     container_name: node_api
-    build:
-      context: ./Api
-      dockerfile: dockerfile
-    depends_on:
-      - db
-      - redis
+    image: "redwappin/projet1_ade"
     environment:
       - API_PORT=3000
       - DB_HOST=postgres  

@@ -29,9 +29,10 @@
      executor: publisher 
      steps:
        - checkout
+       - setup_remote_docker
        - run:
           name: Run Unit tests
-          command: echo unit tests
+          command: npm test
    publish-tag:
       executor: publisher 
       steps:

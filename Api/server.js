@@ -28,4 +28,4 @@ app.use('/', routes);
 //   res.status(404).sendFile(process.cwd() + '/app/views/404.html');
 // });
 
-app.listen(port, () => { console.log('Server started')}) ;
+app.listen(port, () => { console.log('Server started: listening on port ' + port)}) ;
