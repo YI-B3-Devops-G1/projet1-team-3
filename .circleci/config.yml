@@ -6,7 +6,7 @@
         IMAGE_NAME: redwappin/projet1_ade
       docker:
         - image: circleci/buildpack-deps:stretch
-        - image: circleci/node:6.13
+        - image: circleci/node:latest
  jobs:
    install:
      executor: publisher 
@@ -32,10 +32,10 @@
        - checkout
        - setup_remote_docker
        - run: ls -la
-       - run: cd ./Api
+       - run: cd ~/project/Api && pwd && npm install
        - run: 
           name: Run Unit tests
-          command: npm ci
+          command: cd ~/project/Api && pwd && npm test
    publish-tag:
       executor: publisher 
       steps:
