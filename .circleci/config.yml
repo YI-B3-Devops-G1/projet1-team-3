@@ -40,7 +40,7 @@
        - run: cd ~/tester/Api && pwd && npm install
        - run: 
           name: Run Unit tests
-          command: cd ~/project/Api && pwd && npm test
+          command: npm test
    publish-tag:
       executor: publisher 
       steps:
