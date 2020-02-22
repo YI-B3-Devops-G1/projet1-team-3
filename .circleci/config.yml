@@ -28,10 +28,10 @@
    test:
      executor: publisher 
      steps:
-      - checkout
-      - attach_workspace:
-          at: /tmp/workspace
-      - run:
+       - checkout
+       - attach_workspace:
+           at: /tmp/workspace
+       - run:
           name: Copy node_modules
           command: cp -r /tmp/workspace/node_modules ./node_modules # Copy node_modules in app folder
        - run:
