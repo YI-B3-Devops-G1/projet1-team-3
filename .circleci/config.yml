@@ -29,6 +29,7 @@
      executor: publisher 
      steps:
        - checkout
+       - setup_remote_docker
        - run: ls -la
        - run: cd ./Api
        - run: 
