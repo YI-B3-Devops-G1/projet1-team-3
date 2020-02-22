@@ -5,8 +5,7 @@
       environment:
         IMAGE_NAME: redwappin/projet1_ade
       docker:
-        - image: circleci/buildpack-deps:trusty
-        - image: circleci/node:6.10
+        - image: circleci/buildpack-deps:stretch
  jobs:
    install:
      executor: publisher 
@@ -30,7 +29,7 @@
      executor: publisher 
      steps:
        - checkout
-       - run: npm install
+       - run: npm ci
        - run:
           name: Run Unit tests
           command: npm run test
