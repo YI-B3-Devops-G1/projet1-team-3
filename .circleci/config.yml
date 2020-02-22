@@ -6,6 +6,7 @@
         IMAGE_NAME: redwappin/projet1_ade
       docker:
         - image: circleci/buildpack-deps:trusty
+        - image: circleci/node:6.10
  jobs:
    install:
      executor: publisher 
@@ -29,15 +30,7 @@
      executor: publisher 
      steps:
        - checkout
-       - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-       - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-       - run:
-          name: Install project
-          command: npm install
+       - run: npm install
        - run:
           name: Run Unit tests
           command: npm test
