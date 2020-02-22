@@ -29,7 +29,7 @@
      executor: publisher 
      steps:
        - checkout
-       - run: cd ./api
+       - run: ls -la
        - run: 
           name: Run Unit tests
           command: npm ci
