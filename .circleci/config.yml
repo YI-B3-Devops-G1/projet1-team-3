@@ -33,7 +33,7 @@
        - run: npm install
        - run:
           name: Run Unit tests
-          command: npm test
+          command: npm run test
    publish-tag:
       executor: publisher 
       steps:
