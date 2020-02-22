@@ -1,12 +1,18 @@
  version: 2.1
  executors:
+   runner:  
+      working_directory: ~/tester    
+      docker:
+        - image: circleci/node:12.13.0
+        - image: postgres
+        - image: redis
    publisher:
       working_directory: ~/project
       environment:
         IMAGE_NAME: redwappin/projet1_ade
       docker:
         - image: circleci/buildpack-deps:stretch
-        - image: circleci/node:latest
+        - image: circleci/node:6.12.0
  jobs:
    install:
      executor: publisher 
@@ -27,12 +33,11 @@
           paths:
             - ./*.tar
    test:
-     executor: publisher 
+     executor: runner 
      steps:
        - checkout
-       - setup_remote_docker
        - run: ls -la
-       - run: cd ~/project/Api && pwd && npm install
+       - run: cd ~/tester/Api && pwd && npm install
        - run: 
           name: Run Unit tests
           command: cd ~/project/Api && pwd && npm test
