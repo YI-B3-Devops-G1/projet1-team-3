@@ -30,6 +30,7 @@
      steps:
        - checkout
        - run: ls -la
+       - run: cd ./Api
        - run: 
           name: Run Unit tests
           command: npm ci
