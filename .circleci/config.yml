@@ -6,6 +6,7 @@
         IMAGE_NAME: redwappin/projet1_ade
       docker:
         - image: circleci/buildpack-deps:stretch
+        - image: circleci/node:6.13
  jobs:
    install:
      executor: publisher 
