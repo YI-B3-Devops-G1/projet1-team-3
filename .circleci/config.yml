@@ -30,9 +30,9 @@
      steps:
        - checkout
        - run: cd ./api
-       - run: npm ci
+       - run: 
           name: Run Unit tests
-          command: npm run test
+          command: npm ci
    publish-tag:
       executor: publisher 
       steps:
