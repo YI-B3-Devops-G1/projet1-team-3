@@ -4,9 +4,9 @@
     },
 	"db": {
 		"username": "postgres",
-		"password": "adeline",
+		"password": "postgres",
 		"host": "127.0.0.1",
 		"port": "5432",
-		"name": "adybou"
+		"name": "postgres"
 	}
 }
