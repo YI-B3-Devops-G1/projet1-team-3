@@ -5,7 +5,7 @@
     describe('Test backend API ' , function () {
 
         describe('Test get message hello world ', function(){
-            var url = "http://localhost:3000/api/";
+            var url = "http://localhost:3000/";
             it("returns status 200", function(done) {
                 request(url, function(error, response, body) {
                   expect(response.statusCode).to.equal(200);
@@ -23,7 +23,7 @@
         });
 
         describe('Test get redis and postgres status ', function(){
-            var url = "http://localhost:3000/api/status";
+            var url = "http://localhost:3000/status";
             it("returns status 200", function(done) {
                 request(url, function(error, response, body) {
                   expect(response.statusCode).to.equal(200);

@@ -39,7 +39,7 @@
        - run: ls -la
        - run: 
           name: Run Unit tests
-          command:  cd ~/tester/Api && pwd && npm install && node server.js && npm test
+          command:  echo units tests
    publish-tag:
       executor: publisher 
       steps:

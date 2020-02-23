@@ -1,12 +1,12 @@
 {
     "redis": {
-        "host": "redis"
+        "host": "127.0.0.1"
     },
 	"db": {
-		"username": "adeline",
+		"username": "postgres",
 		"password": "adeline",
-		"host": "ady-tezyr.mongodb.net",
-		"port": "27017",
-		"name": "test"
+		"host": "127.0.0.1",
+		"port": "5432",
+		"name": "adybou"
 	}
 }
